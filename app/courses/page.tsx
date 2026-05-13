@@ -50,7 +50,12 @@ export default function CoursesPage() {
       title: "Bachelor in Tourism & Travel Management (BTTM)",
       image: "/images/bttm.jpg",
       desc: "Tourism, travel and hospitality operations management."
-    }
+    },
+    {
+  title: "PB BSc Nursing",
+  image: "/images/pbbsc.jpg",
+  desc: "Post Basic Bachelor of Science in Nursing professional program."
+}
   ];
 
   return (
@@ -139,7 +144,9 @@ export default function CoursesPage() {
     index === 5 ? "bhm" :
     index === 6 ? "mhm" :
     index === 7 ? "bba" :
-    "bttm"
+index === 8 ? "bttm" :
+"pbbsc"
+  
   }`}
 >
 

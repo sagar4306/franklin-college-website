@@ -68,7 +68,14 @@ export default async function CourseDetails({ params }: any) {
       image: "/images/bttm.jpg",
       duration: "3 Years",
       desc: "Tourism and travel industry management course."
-    }
+    },
+    pbbsc: {
+  title: "PB BSc Nursing",
+  image: "/images/pbbsc.jpg",
+  duration: "2 Years",
+  desc: "Post Basic Bachelor of Science in Nursing with advanced clinical and healthcare training."
+}
+    
 
   };
 
