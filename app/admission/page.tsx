@@ -1,10 +1,10 @@
 "use client";
 
+import { supabase } from "@/app/supabase";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import QuickLinks from "../components/QuickLinks";
-import { supabase } from "../supabase";
 
 export default function AdmissionPage() {
 
