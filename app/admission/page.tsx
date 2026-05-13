@@ -2,9 +2,72 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 import QuickLinks from "../components/QuickLinks";
+import { supabase } from "../supabase";
 
 export default function AdmissionPage() {
+
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    phone: "",
+    course: "",
+    message: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement |
+      HTMLTextAreaElement |
+      HTMLSelectElement
+    >
+  ) => {
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent
+  ) => {
+
+    e.preventDefault();
+
+    setLoading(true);
+
+    const { error } = await supabase
+      .from("admissions")
+      .insert([formData]);
+
+    if (error) {
+
+      alert("Submission Failed ❌");
+
+      console.log(error);
+
+    } else {
+
+      alert("Application Submitted Successfully ✅");
+
+      setFormData({
+        full_name: "",
+        email: "",
+        phone: "",
+        course: "",
+        message: ""
+      });
+
+    }
+
+    setLoading(false);
+
+  };
 
   const process = [
     {
@@ -40,18 +103,18 @@ export default function AdmissionPage() {
     "Medical Fitness Certificate"
   ];
 
- const eligibility = [
-  ["BPT", "10+2 (PCB) with 50% aggregate"],
-  ["MPT", "BPT degree with 55% aggregate"],
-  ["BSc Nursing", "10+2 (PCB) with 45% aggregate"],
-  ["PB BSc Nursing", "GNM + Registered Nurse"],
-  ["MPH", "Bachelor's in health science/related field"],
-  ["GNM", "10+2 with 40% aggregate"],
-  ["BHM", "10+2 from any board, 45% aggregate"],
-  ["MHM", "Bachelor's in Hotel Management"],
-  ["BBA", "10+2 from any board"],
-  ["BTTM", "10+2 from any board"]
-];
+  const eligibility = [
+    ["BPT", "10+2 (PCB) with 50% aggregate"],
+    ["MPT", "BPT degree with 55% aggregate"],
+    ["BSc Nursing", "10+2 (PCB) with 45% aggregate"],
+    ["PB BSc Nursing", "GNM + Registered Nurse"],
+    ["MPH", "Bachelor's in health science/related field"],
+    ["GNM", "10+2 with 40% aggregate"],
+    ["BHM", "10+2 from any board, 45% aggregate"],
+    ["MHM", "Bachelor's in Hotel Management"],
+    ["BBA", "10+2 from any board"],
+    ["BTTM", "10+2 from any board"]
+  ];
 
   return (
 
@@ -228,6 +291,7 @@ export default function AdmissionPage() {
 
         <motion.form
           className="admissionForm"
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -235,35 +299,78 @@ export default function AdmissionPage() {
 
           <div className="formGrid">
 
-            <input type="text" placeholder="Full Name" />
+            <input
+              type="text"
+              name="full_name"
+              placeholder="Full Name"
+              value={formData.full_name}
+              onChange={handleChange}
+              required
+            />
 
-            <input type="email" placeholder="Email Address" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
 
-            <input type="text" placeholder="Phone Number" />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
 
-            <select>
-              <option>Select Course</option>
+            <select
+              name="course"
+              value={formData.course}
+              onChange={handleChange}
+              required
+            >
+
+              <option value="">
+                Select Course
+              </option>
+
               <option>BPT</option>
               <option>MPT</option>
               <option>BSc Nursing</option>
+              <option>PB BSc Nursing</option>
               <option>MPH</option>
               <option>GNM</option>
               <option>BHM</option>
               <option>MHM</option>
               <option>BBA</option>
               <option>BTTM</option>
-              <option>PBBSC</option>
+
             </select>
 
           </div>
 
           <textarea
             rows={6}
+            name="message"
             placeholder="Write Your Message"
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
 
-          <button type="submit" className="heroBtn">
-            Submit Application
+          <button
+            type="submit"
+            className="heroBtn"
+          >
+
+            {
+              loading
+              ? "Submitting..."
+              : "Submit Application"
+            }
+
           </button>
 
         </motion.form>
