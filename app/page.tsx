@@ -250,7 +250,8 @@ export default function Home() {
   viewport={{ once: true }}
 >
 
-          <h2>Featured Courses</h2>
+          <h2>FEATURED COURSES ADMISSION OPEN 2026</h2>
+         
 
           <p>
             Explore our professional healthcare and management programs.
