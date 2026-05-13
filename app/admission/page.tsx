@@ -40,17 +40,18 @@ export default function AdmissionPage() {
     "Medical Fitness Certificate"
   ];
 
-  const eligibility = [
-    ["BPT", "10+2 (PCB) with 50% aggregate"],
-    ["MPT", "BPT degree with 55% aggregate"],
-    ["BSc Nursing", "10+2 (PCB) with 45% aggregate"],
-    ["MPH", "Bachelor's in health science/related field"],
-    ["GNM", "10+2 with 40% aggregate"],
-    ["BHM", "10+2 from any board, 45% aggregate"],
-    ["MHM", "Bachelor's in Hotel Management"],
-    ["BBA", "10+2 from any board"],
-    ["BTTM", "10+2 from any board"]
-  ];
+ const eligibility = [
+  ["BPT", "10+2 (PCB) with 50% aggregate"],
+  ["MPT", "BPT degree with 55% aggregate"],
+  ["BSc Nursing", "10+2 (PCB) with 45% aggregate"],
+  ["PB BSc Nursing", "GNM + Registered Nurse"],
+  ["MPH", "Bachelor's in health science/related field"],
+  ["GNM", "10+2 with 40% aggregate"],
+  ["BHM", "10+2 from any board, 45% aggregate"],
+  ["MHM", "Bachelor's in Hotel Management"],
+  ["BBA", "10+2 from any board"],
+  ["BTTM", "10+2 from any board"]
+];
 
   return (
 

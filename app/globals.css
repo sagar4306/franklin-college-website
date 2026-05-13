@@ -1169,15 +1169,27 @@ body{
 
   border:1px solid rgba(255,255,255,0.08);
 
-  background:rgba(255,255,255,0.04);
+  background:
+  linear-gradient(
+    145deg,
+    rgba(15,23,42,0.96),
+    rgba(30,41,59,0.96)
+  );
 
-  color:white;
+  color:#ffffff;
 
   font-size:17px;
 
   outline:none;
 
   transition:0.3s ease;
+
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.18);
 }
 
 .admissionForm input::placeholder,
@@ -1185,15 +1197,31 @@ body{
   color:#94a3b8;
 }
 
+.admissionForm select{
+  cursor:pointer;
+}
+
+.admissionForm select option{
+  background:#0f172a;
+  color:#ffffff;
+  padding:16px;
+}
+
 .admissionForm input:focus,
 .admissionForm select:focus,
 .admissionForm textarea:focus{
   border-color:#38bdf8;
 
-  background:rgba(255,255,255,0.06);
+  background:
+  linear-gradient(
+    145deg,
+    rgba(15,23,42,1),
+    rgba(30,41,59,1)
+  );
 
   box-shadow:
-  0 0 0 4px rgba(56,189,248,0.12);
+  0 0 0 4px rgba(56,189,248,0.12),
+  0 10px 40px rgba(56,189,248,0.18);
 }
 
 .admissionForm textarea{

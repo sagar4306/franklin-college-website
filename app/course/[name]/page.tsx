@@ -1,4 +1,6 @@
+import QuickLinks from "@/app/components/QuickLinks";
 import Link from "next/link";
+
 export default async function CourseDetails({ params }: any) {
 
   const resolvedParams = await params;
@@ -69,13 +71,13 @@ export default async function CourseDetails({ params }: any) {
       duration: "3 Years",
       desc: "Tourism and travel industry management course."
     },
+
     pbbsc: {
-  title: "PB BSc Nursing",
-  image: "/images/pbbsc.jpg",
-  duration: "2 Years",
-  desc: "Post Basic Bachelor of Science in Nursing with advanced clinical and healthcare training."
-}
-    
+      title: "PB BSc Nursing",
+      image: "/images/pbbsc.jpg",
+      duration: "2 Years",
+      desc: "Post Basic Bachelor of Science in Nursing with advanced clinical and healthcare training."
+    }
 
   };
 
@@ -115,6 +117,7 @@ export default async function CourseDetails({ params }: any) {
         <ul className="navLinks">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/courses">Courses</Link></li>
+          <li><Link href="/admission">Admission</Link></li>
         </ul>
 
       </nav>
@@ -168,9 +171,27 @@ export default async function CourseDetails({ params }: any) {
 
           </div>
 
+          <div
+            style={{
+              marginTop: "35px"
+            }}
+          >
+
+            <Link href="/admission">
+
+              <button className="applyBtn">
+                Apply For Admission
+              </button>
+
+            </Link>
+
+          </div>
+
         </div>
 
       </section>
+
+      <QuickLinks />
 
     </main>
 

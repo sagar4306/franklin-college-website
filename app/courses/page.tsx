@@ -1,7 +1,7 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
+import QuickLinks from "../components/QuickLinks";
 
 export default function CoursesPage() {
 
@@ -167,7 +167,7 @@ index === 8 ? "bttm" :
         </div>
 
       </section>
-
+<QuickLinks />
     </main>
   );
 }
